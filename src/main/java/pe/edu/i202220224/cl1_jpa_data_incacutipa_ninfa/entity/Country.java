@@ -39,10 +39,10 @@ public class Country {
     private String Code2;
 
     // RELACIONAMOS CON CITY
-    @OneToMany(mappedBy = "country", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "country", cascade = {CascadeType.PERSIST, CascadeType.REMOVE}, orphanRemoval = true, fetch = FetchType.EAGER)
     private List<City> cities;
 
     // RELACIONAMOS CONB COUNTRYLANGUAGE
-    @OneToMany(mappedBy = "country", cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, orphanRemoval = true)
+    @OneToMany(mappedBy = "country", cascade = {CascadeType.PERSIST,CascadeType.REMOVE}, orphanRemoval = true,fetch = FetchType.EAGER)
     private List<CountryLanguage> languages;
 }
