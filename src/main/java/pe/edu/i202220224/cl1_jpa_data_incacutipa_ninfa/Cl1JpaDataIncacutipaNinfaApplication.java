@@ -52,22 +52,21 @@ public class Cl1JpaDataIncacutipaNinfaApplication implements CommandLineRunner {
 		 * PRIMERA CONSULTA, PER O ARG
 		 */
 
-		/*Optional<Country> optionalArg = countryRepository.findById("PER");
+		Optional<Country> optionalArg = countryRepository.findById("PER");
 
-		// Usar ifPresentOrElse para manejar el resultado
 		optionalArg.ifPresentOrElse(
 				(countryArg) -> {
-					// Si se encuentran lenguajes para "ARG", imprimirlos
-					System.out.println("Languages spoken in ARG:");
+					// CONDICIONAL
+					System.out.println("Languages spoken in " + countryArg.getName());
 					countryArg.getLanguages().forEach(language -> System.out.println(language.getLanguage()));
 				},
 				() -> {
-					// Si no se encuentran lenguajes para "ARG", buscar lenguajes del país "PER"
+					// ESTO FUNCIONA COMO UN ELSE
 					Optional<Country> optionalPer = countryRepository.findById("PER");
 					optionalPer.ifPresentOrElse(
-							countryPer -> {
-								// Si se encuentran lenguajes para "PER", imprimirlos
-								System.out.println("Languages spoken in PER:");
+							(countryPer) -> {
+								// IMPRIMIMOS SI ENCONTRAMOS RESUTLADOS
+								System.out.println("Languages spoken in: " +countryPer.getName());
 								countryPer.getLanguages().forEach(language -> System.out.println(language.getLanguage()));
 							},
 							() -> {
@@ -76,7 +75,7 @@ public class Cl1JpaDataIncacutipaNinfaApplication implements CommandLineRunner {
 							}
 					);
 				}
-		);*/
+		);
 
 
 
@@ -112,7 +111,7 @@ public class Cl1JpaDataIncacutipaNinfaApplication implements CommandLineRunner {
 
 
 
-		//CONSULTA 2 CON o	deleteAllById()
+	/*	//CONSULTA 2 CON o	deleteAllById()
 
 		// LISTA DE COD DE APISES A ELIMINAR
 		List<String> countryCodes = List.of("COL", "ARG");
@@ -128,7 +127,7 @@ public class Cl1JpaDataIncacutipaNinfaApplication implements CommandLineRunner {
 				System.out.println("EL PAIS " + code + " NO SE ESTA EN LA BASE DE DATOS.");
 			}
 		}
-
+*/
 
 
 
